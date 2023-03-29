@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18E40635EC4DF439A96B146F /* Pods_Movey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FCBB12FBBBAFC5EC73E5B07 /* Pods_Movey.framework */; };
+		28CA57BC3915EDEDAF546F62 /* Pods_MoveyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F8172F61BEA04EC94155C05 /* Pods_MoveyTests.framework */; };
 		6F3B198E29D3131E00C3B7A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3B198D29D3131E00C3B7A4 /* AppDelegate.swift */; };
 		6F3B199029D3131E00C3B7A4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3B198F29D3131E00C3B7A4 /* SceneDelegate.swift */; };
 		6F3B199229D3131E00C3B7A4 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3B199129D3131E00C3B7A4 /* MainViewController.swift */; };
@@ -16,6 +18,7 @@
 		6F3B19A529D3131F00C3B7A4 /* MoveyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3B19A429D3131F00C3B7A4 /* MoveyTests.swift */; };
 		6F3B19AF29D3131F00C3B7A4 /* MoveyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3B19AE29D3131F00C3B7A4 /* MoveyUITests.swift */; };
 		6F3B19B129D3131F00C3B7A4 /* MoveyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3B19B029D3131F00C3B7A4 /* MoveyUITestsLaunchTests.swift */; };
+		B92EEE2CD0D47CBCCD5F370E /* Pods_Movey_MoveyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D35228821C2428F3FCC52B7B /* Pods_Movey_MoveyUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +39,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		12EE565E3A2B6FA71454FD4B /* Pods-MoveyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoveyTests.debug.xcconfig"; path = "Target Support Files/Pods-MoveyTests/Pods-MoveyTests.debug.xcconfig"; sourceTree = "<group>"; };
+		294655B30BB4D2D4ABEE2518 /* Pods-Movey.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movey.release.xcconfig"; path = "Target Support Files/Pods-Movey/Pods-Movey.release.xcconfig"; sourceTree = "<group>"; };
+		5FCBB12FBBBAFC5EC73E5B07 /* Pods_Movey.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Movey.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6EE97C79B585BF730BADEEBC /* Pods-MoveyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoveyTests.release.xcconfig"; path = "Target Support Files/Pods-MoveyTests/Pods-MoveyTests.release.xcconfig"; sourceTree = "<group>"; };
 		6F3B198A29D3131E00C3B7A4 /* Movey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Movey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F3B198D29D3131E00C3B7A4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6F3B198F29D3131E00C3B7A4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +56,11 @@
 		6F3B19AA29D3131F00C3B7A4 /* MoveyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoveyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F3B19AE29D3131F00C3B7A4 /* MoveyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveyUITests.swift; sourceTree = "<group>"; };
 		6F3B19B029D3131F00C3B7A4 /* MoveyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveyUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		9F8172F61BEA04EC94155C05 /* Pods_MoveyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoveyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC0D5DD7B3E5D19FC97F5615 /* Pods-Movey-MoveyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movey-MoveyUITests.release.xcconfig"; path = "Target Support Files/Pods-Movey-MoveyUITests/Pods-Movey-MoveyUITests.release.xcconfig"; sourceTree = "<group>"; };
+		BA1136534AE58D953D74E040 /* Pods-Movey.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movey.debug.xcconfig"; path = "Target Support Files/Pods-Movey/Pods-Movey.debug.xcconfig"; sourceTree = "<group>"; };
+		D269C2172C963D7F2AA20DB6 /* Pods-Movey-MoveyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movey-MoveyUITests.debug.xcconfig"; path = "Target Support Files/Pods-Movey-MoveyUITests/Pods-Movey-MoveyUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		D35228821C2428F3FCC52B7B /* Pods_Movey_MoveyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Movey_MoveyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18E40635EC4DF439A96B146F /* Pods_Movey.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28CA57BC3915EDEDAF546F62 /* Pods_MoveyTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B92EEE2CD0D47CBCCD5F370E /* Pods_Movey_MoveyUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +98,8 @@
 				6F3B19A329D3131F00C3B7A4 /* MoveyTests */,
 				6F3B19AD29D3131F00C3B7A4 /* MoveyUITests */,
 				6F3B198B29D3131E00C3B7A4 /* Products */,
+				DCBCF610BA53470D65620FCD /* Pods */,
+				AA706702B4DB673AC8B2388D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -159,6 +176,30 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
+		AA706702B4DB673AC8B2388D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5FCBB12FBBBAFC5EC73E5B07 /* Pods_Movey.framework */,
+				D35228821C2428F3FCC52B7B /* Pods_Movey_MoveyUITests.framework */,
+				9F8172F61BEA04EC94155C05 /* Pods_MoveyTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DCBCF610BA53470D65620FCD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BA1136534AE58D953D74E040 /* Pods-Movey.debug.xcconfig */,
+				294655B30BB4D2D4ABEE2518 /* Pods-Movey.release.xcconfig */,
+				D269C2172C963D7F2AA20DB6 /* Pods-Movey-MoveyUITests.debug.xcconfig */,
+				AC0D5DD7B3E5D19FC97F5615 /* Pods-Movey-MoveyUITests.release.xcconfig */,
+				12EE565E3A2B6FA71454FD4B /* Pods-MoveyTests.debug.xcconfig */,
+				6EE97C79B585BF730BADEEBC /* Pods-MoveyTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -166,9 +207,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6F3B19B429D3131F00C3B7A4 /* Build configuration list for PBXNativeTarget "Movey" */;
 			buildPhases = (
+				FB353E81912E3F433F7432A2 /* [CP] Check Pods Manifest.lock */,
 				6F3B198629D3131E00C3B7A4 /* Sources */,
 				6F3B198729D3131E00C3B7A4 /* Frameworks */,
 				6F3B198829D3131E00C3B7A4 /* Resources */,
+				58EF0BED0394F361785D3ADC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -183,6 +226,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6F3B19B729D3131F00C3B7A4 /* Build configuration list for PBXNativeTarget "MoveyTests" */;
 			buildPhases = (
+				EF85F5B395EA991B2AC6C532 /* [CP] Check Pods Manifest.lock */,
 				6F3B199C29D3131F00C3B7A4 /* Sources */,
 				6F3B199D29D3131F00C3B7A4 /* Frameworks */,
 				6F3B199E29D3131F00C3B7A4 /* Resources */,
@@ -201,9 +245,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6F3B19BA29D3131F00C3B7A4 /* Build configuration list for PBXNativeTarget "MoveyUITests" */;
 			buildPhases = (
+				63D3E348A347186F3FAD678D /* [CP] Check Pods Manifest.lock */,
 				6F3B19A629D3131F00C3B7A4 /* Sources */,
 				6F3B19A729D3131F00C3B7A4 /* Frameworks */,
 				6F3B19A829D3131F00C3B7A4 /* Resources */,
+				116EB9D1E4574ABBE301A57C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -284,6 +330,109 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		116EB9D1E4574ABBE301A57C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Movey-MoveyUITests/Pods-Movey-MoveyUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Movey-MoveyUITests/Pods-Movey-MoveyUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Movey-MoveyUITests/Pods-Movey-MoveyUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		58EF0BED0394F361785D3ADC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Movey/Pods-Movey-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Movey/Pods-Movey-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Movey/Pods-Movey-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		63D3E348A347186F3FAD678D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Movey-MoveyUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EF85F5B395EA991B2AC6C532 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MoveyTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FB353E81912E3F433F7432A2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Movey-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6F3B198629D3131E00C3B7A4 /* Sources */ = {
@@ -464,6 +613,7 @@
 		};
 		6F3B19B529D3131F00C3B7A4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BA1136534AE58D953D74E040 /* Pods-Movey.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -492,6 +642,7 @@
 		};
 		6F3B19B629D3131F00C3B7A4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 294655B30BB4D2D4ABEE2518 /* Pods-Movey.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -520,6 +671,7 @@
 		};
 		6F3B19B829D3131F00C3B7A4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 12EE565E3A2B6FA71454FD4B /* Pods-MoveyTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -540,6 +692,7 @@
 		};
 		6F3B19B929D3131F00C3B7A4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6EE97C79B585BF730BADEEBC /* Pods-MoveyTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -560,6 +713,7 @@
 		};
 		6F3B19BB29D3131F00C3B7A4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D269C2172C963D7F2AA20DB6 /* Pods-Movey-MoveyUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -578,6 +732,7 @@
 		};
 		6F3B19BC29D3131F00C3B7A4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AC0D5DD7B3E5D19FC97F5615 /* Pods-Movey-MoveyUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
