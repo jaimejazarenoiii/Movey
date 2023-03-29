@@ -18,6 +18,9 @@
 		6F3B19A529D3131F00C3B7A4 /* MoveyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3B19A429D3131F00C3B7A4 /* MoveyTests.swift */; };
 		6F3B19AF29D3131F00C3B7A4 /* MoveyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3B19AE29D3131F00C3B7A4 /* MoveyUITests.swift */; };
 		6F3B19B129D3131F00C3B7A4 /* MoveyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3B19B029D3131F00C3B7A4 /* MoveyUITestsLaunchTests.swift */; };
+		6F3B19C329D43FA900C3B7A4 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3B19C229D43FA900C3B7A4 /* MainViewModel.swift */; };
+		6F3B19C629D442E900C3B7A4 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3B19C529D442E900C3B7A4 /* Track.swift */; };
+		6F3B19C929D4463E00C3B7A4 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3B19C829D4463E00C3B7A4 /* DBManager.swift */; };
 		B92EEE2CD0D47CBCCD5F370E /* Pods_Movey_MoveyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D35228821C2428F3FCC52B7B /* Pods_Movey_MoveyUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +59,9 @@
 		6F3B19AA29D3131F00C3B7A4 /* MoveyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoveyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F3B19AE29D3131F00C3B7A4 /* MoveyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveyUITests.swift; sourceTree = "<group>"; };
 		6F3B19B029D3131F00C3B7A4 /* MoveyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveyUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		6F3B19C229D43FA900C3B7A4 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		6F3B19C529D442E900C3B7A4 /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
+		6F3B19C829D4463E00C3B7A4 /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 		9F8172F61BEA04EC94155C05 /* Pods_MoveyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoveyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC0D5DD7B3E5D19FC97F5615 /* Pods-Movey-MoveyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movey-MoveyUITests.release.xcconfig"; path = "Target Support Files/Pods-Movey-MoveyUITests/Pods-Movey-MoveyUITests.release.xcconfig"; sourceTree = "<group>"; };
 		BA1136534AE58D953D74E040 /* Pods-Movey.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movey.debug.xcconfig"; path = "Target Support Files/Pods-Movey/Pods-Movey.debug.xcconfig"; sourceTree = "<group>"; };
@@ -116,10 +122,12 @@
 		6F3B198C29D3131E00C3B7A4 /* Movey */ = {
 			isa = PBXGroup;
 			children = (
-				6F3B19BF29D439C500C3B7A4 /* Supporting Files */,
+				6F3B19C129D43EA700C3B7A4 /* Custom Components */,
+				6F3B19C429D442DB00C3B7A4 /* Models */,
 				6F3B19BE29D439BC00C3B7A4 /* Resources */,
 				6F3B19BD29D439B500C3B7A4 /* Scenes */,
-				6F3B199829D3131F00C3B7A4 /* LaunchScreen.storyboard */,
+				6F3B19C729D445A500C3B7A4 /* Services */,
+				6F3B19BF29D439C500C3B7A4 /* Supporting Files */,
 			);
 			path = Movey;
 			sourceTree = "<group>";
@@ -160,6 +168,7 @@
 		6F3B19BF29D439C500C3B7A4 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				6F3B199829D3131F00C3B7A4 /* LaunchScreen.storyboard */,
 				6F3B198D29D3131E00C3B7A4 /* AppDelegate.swift */,
 				6F3B198F29D3131E00C3B7A4 /* SceneDelegate.swift */,
 				6F3B199B29D3131F00C3B7A4 /* Info.plist */,
@@ -172,8 +181,32 @@
 			children = (
 				6F3B199329D3131E00C3B7A4 /* Main.storyboard */,
 				6F3B199129D3131E00C3B7A4 /* MainViewController.swift */,
+				6F3B19C229D43FA900C3B7A4 /* MainViewModel.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		6F3B19C129D43EA700C3B7A4 /* Custom Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Custom Components";
+			sourceTree = "<group>";
+		};
+		6F3B19C429D442DB00C3B7A4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6F3B19C529D442E900C3B7A4 /* Track.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		6F3B19C729D445A500C3B7A4 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				6F3B19C829D4463E00C3B7A4 /* DBManager.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		AA706702B4DB673AC8B2388D /* Frameworks */ = {
@@ -196,7 +229,6 @@
 				12EE565E3A2B6FA71454FD4B /* Pods-MoveyTests.debug.xcconfig */,
 				6EE97C79B585BF730BADEEBC /* Pods-MoveyTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -440,8 +472,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				6F3B199229D3131E00C3B7A4 /* MainViewController.swift in Sources */,
+				6F3B19C929D4463E00C3B7A4 /* DBManager.swift in Sources */,
+				6F3B19C629D442E900C3B7A4 /* Track.swift in Sources */,
 				6F3B198E29D3131E00C3B7A4 /* AppDelegate.swift in Sources */,
 				6F3B199029D3131E00C3B7A4 /* SceneDelegate.swift in Sources */,
+				6F3B19C329D43FA900C3B7A4 /* MainViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -617,11 +652,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 376MZMYFVZ;
+				DEVELOPMENT_TEAM = 6CXX9WJRR3;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Movey/Info.plist;
+				INFOPLIST_FILE = "Movey/Supporting Files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -634,6 +670,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jaimejazarenoiii.Movey;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -646,11 +683,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 376MZMYFVZ;
+				DEVELOPMENT_TEAM = 6CXX9WJRR3;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Movey/Info.plist;
+				INFOPLIST_FILE = "Movey/Supporting Files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -663,6 +701,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jaimejazarenoiii.Movey;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
