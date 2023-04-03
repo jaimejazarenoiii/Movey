@@ -31,12 +31,16 @@ struct MainCollectionViewCellData {
 }
 
 class MainViewModel: MainViewModelTypes, MainViewModelOutputs, MainViewModelInputs {
+
+
     var inputs: MainViewModelInputs { return self }
     var outputs: MainViewModelOutputs { return self }
 
     var status: RxRelay.BehaviorRelay<Bool?>
     var error: RxRelay.BehaviorRelay<Error?>
     var tracks: BehaviorRelay<[Track]?>
+
+    private var collectionView: BehaviorRelay<UICollectionView?>
 
     private let disposeBag: DisposeBag = DisposeBag()
     private let trackService: TrackServiceable
@@ -45,14 +49,27 @@ class MainViewModel: MainViewModelTypes, MainViewModelOutputs, MainViewModelInpu
         status = .init(value: nil)
         error = .init(value: nil)
         tracks = .init(value: nil)
+        collectionView = .init(value: nil)
         trackService = TrackService()
 
-        viewDidLoadProperty.subscribe(onNext: { [weak self] _ in
-            guard let self else { return }
-            Task {
-                await self.fetchAllTracks()
+        viewDidLoadProperty.flatMap { [weak self] _ -> Observable<[Track]?> in
+            guard let self else { return Observable.empty() }
+            return Observable.create { observer in
+                Task {
+                    observer.onNext(await self.fetchAllTracks())
+                    observer.onCompleted()
+                }
             }
-        }).disposed(by: disposeBag)
+        }
+        .subscribe(onNext: { [weak self] tracks in
+            guard let self else { return }
+            self.tracks.accept(tracks)
+        })
+        .disposed(by: disposeBag)
+
+        tracks.filter { $0 != nil }.flatMap { [weak self] ->
+
+        setCollectionViewProperty.bind(to: collectionView).disposed(by: disposeBag)
     }
 
     private let viewDidLoadProperty: PublishSubject<Void> = .init()
@@ -60,10 +77,14 @@ class MainViewModel: MainViewModelTypes, MainViewModelOutputs, MainViewModelInpu
         viewDidLoadProperty.onNext(())
     }
 
-    private func fetchAllTracks() async {
-        do {
-            try await trackService.fetchAllTrack()
+    private let setCollectionViewProperty: PublishSubject<UICollectionView> = .init()
+    func set(collectionView: UICollectionView) {
+        setCollectionViewProperty.onNext(collectionView)
+    }
 
+    private func fetchAllTracks() async throws -> [Track]? {
+        do {
+            return try await trackService.fetchAllTrack()
         } catch(let err) {
             print("There's an error: \(err.localizedDescription)")
         }
