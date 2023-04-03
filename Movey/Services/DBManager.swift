@@ -9,8 +9,8 @@ import RealmSwift
 
 class DBManager {
 //MARK: Singleton
-    static let sharedInstance = DBManager()
-    private myDB: Realm
+    static let shared = DBManager()
+    private var myDB: Realm?
 
     //MARK: Init
     private init(){
@@ -20,19 +20,24 @@ class DBManager {
         catch{
             print("boooom")
         }
-
     }
 
     //retrive data from db
-    func getTracks() -> Results<Track>{
-        let results: Results<Track> = myDB.objects(Track)
+    func getTracks() -> Results<Track> {
+        let results: Results<Track> = myDB!.objects(Track.self)
         return results
+    }
+
+    func refresh(tracks: [Track]) {
+        try! myDB!.write {
+            myDB!.add(tracks)
+        }
     }
 
     //write an object in db
     func addDataModelEntry(object: Track){
-        try! myDB.write{
-            myDB.add(object, update: true)
+        try! myDB!.write{
+            myDB!.add(object)
         }
     }
 
