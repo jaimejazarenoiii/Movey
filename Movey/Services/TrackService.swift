@@ -24,7 +24,9 @@ class TrackService: TrackServiceable {
                 let responseData = try JSONDecoder().decode(TrackResponse.self,
                                                             from: data)
 
-                DBManager.shared.refresh(tracks: responseData.results)
+                DispatchQueue.main.async {
+                    DBManager.shared.refresh(tracks: responseData.results)
+                }
                 return responseData.results
             } catch(let err) {
                 throw err

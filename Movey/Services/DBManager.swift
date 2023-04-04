@@ -10,12 +10,13 @@ import RealmSwift
 class DBManager {
 //MARK: Singleton
     static let shared = DBManager()
-    private var myDB: Realm?
+    static let thread = DispatchQueue(label: "realm-queue")
+    private var realm: Realm?
 
     //MARK: Init
     private init(){
         do{
-            myDB = try Realm()
+            realm = try Realm()
         }
         catch{
             print("boooom")
@@ -23,21 +24,34 @@ class DBManager {
     }
 
     //retrive data from db
-    func getTracks() -> Results<Track> {
-        let results: Results<Track> = myDB!.objects(Track.self)
-        return results
+    func getTracks() -> [Track] {
+        let results: Results<Track> = realm!.objects(Track.self)
+        return results.map { $0 }
+    }
+
+    func getTrack(id: Int) -> Track? {
+        return realm!.objects(Track.self).first(where: { $0.trackId == id })
     }
 
     func refresh(tracks: [Track]) {
-        try! myDB!.write {
-            myDB!.add(tracks)
+        let results: Results<Track> = realm!.objects(Track.self)
+        guard results.isEmpty else { return }
+        try! self.realm!.write {
+            self.realm!.add(tracks, update: .all)
         }
     }
 
     //write an object in db
     func addDataModelEntry(object: Track){
-        try! myDB!.write{
-            myDB!.add(object)
+        try! realm!.write{
+            realm!.add(object)
+        }
+    }
+
+    func update(track: Track, isFavorite: Bool) {
+        try! realm!.write {
+            track.isFavorite = isFavorite
+            realm!.add(track, update: .all)
         }
     }
 
