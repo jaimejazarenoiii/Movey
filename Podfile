@@ -11,6 +11,7 @@ target 'Movey' do
   pod 'SnapKit'
   pod 'Kingfisher'
   pod 'RealmSwift'
+  pod 'Blueprints'
 
   target 'MoveyTests' do
     inherit! :search_paths
