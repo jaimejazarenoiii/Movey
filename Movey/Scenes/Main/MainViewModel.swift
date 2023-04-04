@@ -12,22 +12,18 @@ import UIKit
 protocol MainViewModelInputs {
     func viewDidLoad()
     func set(collectionView: UICollectionView)
+    func favorite(track: Track, isFavorite: Bool)
 }
 
 protocol MainViewModelOutputs {
     var status: BehaviorRelay<Bool?> { get }
     var error: BehaviorRelay<Error?> { get }
-    var tracks: BehaviorRelay<[Track]?> { get }
+    var tracksData: BehaviorRelay<TracksCollectionViewCellData?> { get }
 }
 
 protocol MainViewModelTypes {
     var inputs: MainViewModelInputs { get }
     var outputs: MainViewModelOutputs { get }
-}
-
-struct MainCollectionViewCellData {
-    let section: Int
-    let tracks: [Track]
 }
 
 class MainViewModel: MainViewModelTypes, MainViewModelOutputs, MainViewModelInputs {
@@ -38,7 +34,7 @@ class MainViewModel: MainViewModelTypes, MainViewModelOutputs, MainViewModelInpu
 
     var status: RxRelay.BehaviorRelay<Bool?>
     var error: RxRelay.BehaviorRelay<Error?>
-    var tracks: BehaviorRelay<[Track]?>
+    var tracksData: BehaviorRelay<TracksCollectionViewCellData?>
 
     private var collectionView: BehaviorRelay<UICollectionView?>
 
@@ -48,26 +44,29 @@ class MainViewModel: MainViewModelTypes, MainViewModelOutputs, MainViewModelInpu
     init () {
         status = .init(value: nil)
         error = .init(value: nil)
-        tracks = .init(value: nil)
+        tracksData = .init(value: nil)
         collectionView = .init(value: nil)
         trackService = TrackService()
 
-        viewDidLoadProperty.flatMap { [weak self] _ -> Observable<[Track]?> in
-            guard let self else { return Observable.empty() }
-            return Observable.create { observer in
-                Task {
-                    observer.onNext(await self.fetchAllTracks())
-                    observer.onCompleted()
+        viewDidLoadProperty.subscribe(on: MainScheduler.instance).subscribe(onNext: { [weak self] _ in
+            guard let self else { return }
+            Task {
+                let _ = try await self.fetchAllTracks()
+                DispatchQueue.main.async {
+                    let tracks = DBManager.shared.getTracks()
+                    self.tracksData.accept(TracksCollectionViewCellData(section: 0, tracks: tracks))
                 }
             }
-        }
-        .subscribe(onNext: { [weak self] tracks in
-            guard let self else { return }
-            self.tracks.accept(tracks)
         })
         .disposed(by: disposeBag)
 
-        tracks.filter { $0 != nil }.flatMap { [weak self] ->
+        favoriteTrackProperty.subscribe(on: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] track, isFavorite in
+                guard let self else { return }
+                DBManager.shared.update(track: track, isFavorite: isFavorite)
+                let tracks = self.fetchLocalTracks()
+                self.tracksData.accept(TracksCollectionViewCellData(section: 0, tracks: tracks!))
+            }).disposed(by: disposeBag)
 
         setCollectionViewProperty.bind(to: collectionView).disposed(by: disposeBag)
     }
@@ -82,12 +81,21 @@ class MainViewModel: MainViewModelTypes, MainViewModelOutputs, MainViewModelInpu
         setCollectionViewProperty.onNext(collectionView)
     }
 
+    private let favoriteTrackProperty: PublishSubject<(Track, Bool)> = .init()
+    func favorite(track: Track, isFavorite: Bool) {
+        favoriteTrackProperty.onNext((track, isFavorite))
+    }
+
     private func fetchAllTracks() async throws -> [Track]? {
         do {
             return try await trackService.fetchAllTrack()
         } catch(let err) {
             print("There's an error: \(err.localizedDescription)")
+            return nil
         }
     }
 
+    private func fetchLocalTracks() -> [Track]? {
+        DBManager.shared.getTracks().map { $0 }
+    }
 }
