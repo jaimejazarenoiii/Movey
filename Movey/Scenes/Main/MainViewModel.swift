@@ -9,6 +9,7 @@ import RxCocoa
 import RxSwift
 import UIKit
 
+// MARK: Input methods
 protocol MainViewModelInputs {
     func viewDidLoad()
     func set(collectionView: UICollectionView)
@@ -17,6 +18,7 @@ protocol MainViewModelInputs {
     func viewWillAppear()
 }
 
+// MARK: Output variables
 protocol MainViewModelOutputs {
     var status: BehaviorRelay<Status?> { get }
     var error: BehaviorRelay<Error?> { get }
@@ -24,11 +26,13 @@ protocol MainViewModelOutputs {
     var filteredTracks: BehaviorRelay<[Track]?> { get }
 }
 
+// MARK: Type wrapper
 protocol MainViewModelTypes {
     var inputs: MainViewModelInputs { get }
     var outputs: MainViewModelOutputs { get }
 }
 
+// MARK: Class
 class MainViewModel: MainViewModelTypes, MainViewModelOutputs, MainViewModelInputs {
 
 
@@ -45,6 +49,7 @@ class MainViewModel: MainViewModelTypes, MainViewModelOutputs, MainViewModelInpu
     private let disposeBag: DisposeBag = DisposeBag()
     private let trackService: TrackServiceable
 
+    /// Setup plus binding
     init () {
         status = .init(value: nil)
         error = .init(value: nil)

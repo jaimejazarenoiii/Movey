@@ -11,14 +11,17 @@ import RxSwift
 import UIKit
 
 class MainViewController: UIViewController {
+    // MARK: Variables
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var searchTextField: UITextField!
 
+    @IBOutlet weak var dateLabel: UILabel!
     private let viewModel: MainViewModelTypes = MainViewModel()
     private var tracksDataSource: UICollectionViewDiffableDataSource<Int, Track>?
     private var tracksSnapshot: NSDiffableDataSourceSnapshot<Int, Track> = NSDiffableDataSourceSnapshot<Int, Track>()
     private let disposeBag = DisposeBag()
 
+    // MARK: Override functions
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         viewModel.inputs.viewWillAppear()
@@ -26,15 +29,33 @@ class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupDateLabel()
         setupCollectionViewDataSource()
         setupCollectionView()
         setupBindings()
+        // Create Date
+        let date = Date()
+
+        // Create Date Formatter
+        let dateFormatter = DateFormatter()
+
+        // Set Date/Time Style
+        dateFormatter.dateStyle = .long
+        dateFormatter.timeStyle = .long
+        UserDefaults.standard.set(dateFormatter.string(from: date), forKey: "lastSession")
         guard UserDefaults.standard.integer(forKey: "trackId") == 0 else {
             return DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                 guard let track = DBManager.shared.getTrack(id: UserDefaults.standard.integer(forKey: "trackId")) else { return }
                 return self.navigateToTrackDetail(track: track)
             }
         }
+    }
+
+    // MARK: Private functions
+    private func setupDateLabel() {
+        let isoDate = UserDefaults.standard.string(forKey: "lastSession") ?? ""
+
+        dateLabel.text = "Last session: \(isoDate)"
     }
 
     private func setupCollectionViewDataSource() {
@@ -134,6 +155,7 @@ class MainViewController: UIViewController {
 
 }
 
+// MARK: Hook from TrackCollectionViewCell
 extension MainViewController: TrackCollectionViewCellDelegate {
     func didTapFavoriteButton(isFavorite: Bool, indexPath: IndexPath) {
         viewModel.inputs.favorite(track: viewModel.outputs.filteredTracks.value![indexPath.row], isFavorite: isFavorite)

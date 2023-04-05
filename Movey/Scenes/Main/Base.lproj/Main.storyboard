@@ -34,7 +34,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="vt3-Lx-oN0">
-                                <rect key="frame" x="0.0" y="135" width="390" height="675"/>
+                                <rect key="frame" x="0.0" y="156" width="390" height="654"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewLayout key="collectionViewLayout" id="HQR-Xl-Fl8"/>
                                 <cells>
@@ -49,23 +49,35 @@
                                 </cells>
                             </collectionView>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search track" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c58-OL-ruu">
-                                <rect key="frame" x="10" y="91" width="370" height="34"/>
+                                <rect key="frame" x="10" y="112" width="370" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="j0j-7d-Gul"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WEN-Vr-7bZ">
+                                <rect key="frame" x="10" y="81" width="370" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="Ah9-t6-Rbu"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="c58-OL-ruu" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="AKi-9N-IyR"/>
+                            <constraint firstItem="WEN-Vr-7bZ" firstAttribute="trailing" secondItem="c58-OL-ruu" secondAttribute="trailing" id="9Lp-UJ-DL4"/>
                             <constraint firstItem="c58-OL-ruu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="ICU-hH-DaM"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="vt3-Lx-oN0" secondAttribute="trailing" id="K1j-zM-eBh"/>
+                            <constraint firstItem="WEN-Vr-7bZ" firstAttribute="leading" secondItem="c58-OL-ruu" secondAttribute="leading" id="Kmr-2S-qQ5"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="WEN-Vr-7bZ" secondAttribute="top" constant="10" id="Nrh-5e-lay"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="c58-OL-ruu" secondAttribute="trailing" constant="10" id="OxD-Gb-4Xm"/>
                             <constraint firstItem="vt3-Lx-oN0" firstAttribute="top" secondItem="c58-OL-ruu" secondAttribute="bottom" constant="10" id="TW5-jo-4qj"/>
                             <constraint firstItem="vt3-Lx-oN0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="fhy-b1-NfX"/>
+                            <constraint firstItem="c58-OL-ruu" firstAttribute="top" secondItem="WEN-Vr-7bZ" secondAttribute="bottom" constant="10" id="rvu-xL-nTI"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="vt3-Lx-oN0" secondAttribute="bottom" id="sXP-Gm-CzU"/>
                         </constraints>
                     </view>
@@ -74,6 +86,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="vt3-Lx-oN0" id="f30-Ha-pNE"/>
+                        <outlet property="dateLabel" destination="WEN-Vr-7bZ" id="rgb-cc-PgP"/>
                         <outlet property="searchTextField" destination="c58-OL-ruu" id="Y2P-FK-dqf"/>
                     </connections>
                 </viewController>

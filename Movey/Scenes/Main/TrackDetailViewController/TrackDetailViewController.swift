@@ -10,6 +10,7 @@ import RxSwift
 import UIKit
 
 class TrackDetailViewController: UIViewController {
+    // MARK: Variables
     @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
@@ -20,6 +21,7 @@ class TrackDetailViewController: UIViewController {
     var viewModel: TrackDetailViewModelTypes!
     private let disposeBag: DisposeBag = DisposeBag()
 
+    // MARK: Override functions
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         UserDefaults.standard.set(0, forKey: "trackId")
@@ -31,6 +33,7 @@ class TrackDetailViewController: UIViewController {
         setupBindings()
     }
 
+    // MARK: Private functions
     private func setupFavoriteButton() {
         favoriteButton.setImage(UIImage(systemName: "heart.fill"), for: .selected)
         favoriteButton.setImage(UIImage(systemName: "heart"), for: .normal)

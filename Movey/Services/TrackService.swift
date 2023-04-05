@@ -6,11 +6,14 @@
 //
 
 import Foundation
+// MARK: Protocol
 protocol TrackServiceable {
     func fetchAllTrack() async throws -> [Track]
 }
 
+// MARK: Implementation
 class TrackService: TrackServiceable {
+    /// Fetches all tracks from itunes then save it in DB
     func fetchAllTrack() async throws -> [Track] {
         do {
             let url = URL(string: "https://itunes.apple.com/search?term=star&country=au&media=movie&;all")!

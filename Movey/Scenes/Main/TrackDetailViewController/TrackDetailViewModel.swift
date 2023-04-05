@@ -8,24 +8,27 @@
 import RxCocoa
 import RxSwift
 
+// MARK: Input methods
 protocol TrackDetailViewModelInputs {
     func viewDidLoad()
     func favorite(track: Track, isFavorite: Bool)
     func set(track: Track)
 }
 
+// MARK: Output variables
 protocol TrackDetailViewModelOutputs {
     var status: BehaviorRelay<Bool?> { get }
     var error: BehaviorRelay<Error?> { get }
     var track: BehaviorRelay<Track?> { get }
 }
 
+// MARK: Type wrapper
 protocol TrackDetailViewModelTypes {
     var inputs: TrackDetailViewModelInputs { get }
     var outputs: TrackDetailViewModelOutputs { get }
 }
 
-
+// MARK: Class implementation
 class TrackDetailViewModel: TrackDetailViewModelTypes, TrackDetailViewModelOutputs, TrackDetailViewModelInputs {
     var inputs: TrackDetailViewModelInputs { return self }
     var outputs: TrackDetailViewModelOutputs { return self }
@@ -36,6 +39,7 @@ class TrackDetailViewModel: TrackDetailViewModelTypes, TrackDetailViewModelOutpu
 
     private let disposeBag: DisposeBag = DisposeBag()
 
+    /// Variable init plus bindings
     init() {
         status = .init(value: nil)
         error = .init(value: nil)

@@ -11,11 +11,14 @@ import RxCocoa
 import RxSwift
 import UIKit
 
+// MARK: Delegate hooks for this cell
 protocol TrackCollectionViewCellDelegate: AnyObject {
     func didTapFavoriteButton(isFavorite: Bool, indexPath: IndexPath)
 }
 
 class TrackCollectionViewCell: UICollectionViewCell {
+
+    // MARK: Variables
     @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -36,6 +39,7 @@ class TrackCollectionViewCell: UICollectionViewCell {
         favoriteButton.setImage(UIImage(systemName: "heart"), for: .normal)
     }
 
+    // MARK: Bindings
     private func setupBindings() {
         favoriteButton.rx.controlEvent(.touchUpInside).subscribe(onNext: { [weak self] _ in
             guard let self, let indexPath = self.indexPath else { return }
@@ -43,6 +47,8 @@ class TrackCollectionViewCell: UICollectionViewCell {
         }).disposed(by: disposeBag)
     }
 
+    // MARK: Set function
+    /// To be called out outisde of this class and triggers update of UI
     func set(track: Track, indexPath: IndexPath) {
         titleLabel.text = track.trackName
         genreLabel.text = track.primaryGenreName

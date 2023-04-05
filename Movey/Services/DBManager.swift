@@ -8,12 +8,12 @@
 import RealmSwift
 
 class DBManager {
-//MARK: Singleton
+    // MARK: Singleton
     static let shared = DBManager()
     static let thread = DispatchQueue(label: "realm-queue")
     private var realm: Realm?
 
-    //MARK: Init
+    // MARK: Init
     private init(){
         do{
             realm = try Realm()
@@ -23,16 +23,18 @@ class DBManager {
         }
     }
 
-    //retrive data from db
+    /// retrive all tracks from db
     func getTracks() -> [Track] {
         let results: Results<Track> = realm!.objects(Track.self)
         return results.map { $0 }
     }
 
+    /// retrieve one track from db
     func getTrack(id: Int) -> Track? {
         return realm!.objects(Track.self).first(where: { $0.trackId == id })
     }
 
+    /// Purge tracks and set new entry
     func refresh(tracks: [Track]) {
         let results: Results<Track> = realm!.objects(Track.self)
         guard results.isEmpty else { return }
@@ -41,13 +43,14 @@ class DBManager {
         }
     }
 
-    //write an object in db
+    /// write an object in db
     func addDataModelEntry(object: Track){
         try! realm!.write{
             realm!.add(object)
         }
     }
 
+    /// Update track in db
     func update(track: Track, isFavorite: Bool) {
         try! realm!.write {
             track.isFavorite = isFavorite
