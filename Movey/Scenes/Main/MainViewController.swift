@@ -26,13 +26,15 @@ class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard GlobalSettings.track.trackId == 0 else {
-            let item = GlobalSettings.track
-            return navigateToTrackDetail(track: item)
-        }
         setupCollectionViewDataSource()
         setupCollectionView()
         setupBindings()
+        guard UserDefaults.standard.integer(forKey: "trackId") == 0 else {
+            return DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                guard let track = DBManager.shared.getTrack(id: UserDefaults.standard.integer(forKey: "trackId")) else { return }
+                return self.navigateToTrackDetail(track: track)
+            }
+        }
     }
 
     private func setupCollectionViewDataSource() {
@@ -125,7 +127,8 @@ class MainViewController: UIViewController {
         let vc = storyboard.instantiateViewController(withIdentifier: "TrackDetailViewController") as! TrackDetailViewController
         vc.viewModel = vm
         vm.inputs.set(track: track)
-        GlobalSettings.track = track
+        UserDefaults.standard.set(track.trackId, forKey: "trackId")
+        dismiss(animated: true)
         navigationController?.pushViewController(vc, animated: true)
     }
 

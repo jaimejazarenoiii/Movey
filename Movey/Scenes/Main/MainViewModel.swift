@@ -70,27 +70,17 @@ class MainViewModel: MainViewModelTypes, MainViewModelOutputs, MainViewModelInpu
             .bind(to: status)
             .disposed(by: disposeBag)
 
-        viewDidLoadProperty.subscribe(on: MainScheduler.instance).subscribe(onNext: { [weak self] _ in
-            guard let self else { return }
-            Task {
-                let _ = try await self.fetchAllTracks()
-                DispatchQueue.main.async {
-                    let tracks = self.fetchLocalTracks()
-                    self.tracks.accept(tracks!)
-                    self.status.accept(.success)
-                }
-            }
-        })
-        .disposed(by: disposeBag)
-
-        Observable.combineLatest(viewDidLoadProperty, viewWillAppearProperty)
+        Observable.merge(viewDidLoadProperty, viewWillAppearProperty)
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: { [weak self] _ in
                 guard let self else { return }
-                DispatchQueue.main.async {
-                    let tracks = self.fetchLocalTracks()
-                    self.tracks.accept(tracks!)
-                    self.status.accept(.success)
+                Task {
+                    let _ = try await self.fetchAllTracks()
+                    DispatchQueue.main.async {
+                        let tracks = self.fetchLocalTracks()
+                        self.tracks.accept(tracks!)
+                        self.status.accept(.success)
+                    }
                 }
             }).disposed(by: disposeBag)
 
