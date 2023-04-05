@@ -14,6 +14,7 @@ class TrackDetailViewController: UIViewController {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     
+    @IBOutlet weak var backButton: UIBarButtonItem!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var genreLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
@@ -32,7 +33,12 @@ class TrackDetailViewController: UIViewController {
         favoriteButton.setImage(UIImage(systemName: "heart"), for: .normal)
     }
 
+
     private func setupBindings() {
+        backButton.rx.tap.subscribe(onNext: { _ in
+            UserDefaults.standard.set(nil, forKey: "selectedTrack")
+        }).disposed(by: disposeBag)
+
         viewModel.outputs.track.observe(on: MainScheduler.instance)
             .subscribe(onNext: { [weak self] track in
                 guard let self, let track else { return }

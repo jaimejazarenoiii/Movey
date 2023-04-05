@@ -21,6 +21,9 @@
 		6F3B19C329D43FA900C3B7A4 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3B19C229D43FA900C3B7A4 /* MainViewModel.swift */; };
 		6F3B19C629D442E900C3B7A4 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3B19C529D442E900C3B7A4 /* Track.swift */; };
 		6F3B19C929D4463E00C3B7A4 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3B19C829D4463E00C3B7A4 /* DBManager.swift */; };
+		6FB8CACD29DD817A00457A8F /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB8CACC29DD817A00457A8F /* Status.swift */; };
+		6FB8CACF29DD9B2E00457A8F /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB8CACE29DD9B2E00457A8F /* UserDefault.swift */; };
+		6FB8CAD129DD9B9900457A8F /* GlobalSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB8CAD029DD9B9900457A8F /* GlobalSettings.swift */; };
 		B4A6CC6329D4733800E88639 /* TrackCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A6CC6229D4733800E88639 /* TrackCollectionViewCell.swift */; };
 		B4A6CC6729D481C900E88639 /* TrackResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A6CC6629D481C900E88639 /* TrackResponse.swift */; };
 		B4A6CC6929D865A600E88639 /* TrackService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A6CC6829D865A600E88639 /* TrackService.swift */; };
@@ -71,6 +74,9 @@
 		6F3B19C229D43FA900C3B7A4 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		6F3B19C529D442E900C3B7A4 /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 		6F3B19C829D4463E00C3B7A4 /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
+		6FB8CACC29DD817A00457A8F /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
+		6FB8CACE29DD9B2E00457A8F /* UserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefault.swift; sourceTree = "<group>"; };
+		6FB8CAD029DD9B9900457A8F /* GlobalSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalSettings.swift; sourceTree = "<group>"; };
 		9F8172F61BEA04EC94155C05 /* Pods_MoveyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoveyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC0D5DD7B3E5D19FC97F5615 /* Pods-Movey-MoveyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movey-MoveyUITests.release.xcconfig"; path = "Target Support Files/Pods-Movey-MoveyUITests/Pods-Movey-MoveyUITests.release.xcconfig"; sourceTree = "<group>"; };
 		B4A6CC6229D4733800E88639 /* TrackCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -212,6 +218,7 @@
 				6F3B19C529D442E900C3B7A4 /* Track.swift */,
 				B4A6CC6629D481C900E88639 /* TrackResponse.swift */,
 				B4A6CC6D29DAD90A00E88639 /* TracksCollectionViewCellData.swift */,
+				6FB8CACE29DD9B2E00457A8F /* UserDefault.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -247,6 +254,8 @@
 			isa = PBXGroup;
 			children = (
 				B4A6CC6A29D86A8200E88639 /* NetworkError.swift */,
+				6FB8CACC29DD817A00457A8F /* Status.swift */,
+				6FB8CAD029DD9B9900457A8F /* GlobalSettings.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -525,7 +534,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B4A6CC6329D4733800E88639 /* TrackCollectionViewCell.swift in Sources */,
+				6FB8CAD129DD9B9900457A8F /* GlobalSettings.swift in Sources */,
 				6F3B199229D3131E00C3B7A4 /* MainViewController.swift in Sources */,
+				6FB8CACF29DD9B2E00457A8F /* UserDefault.swift in Sources */,
 				B4A6CC6E29DAD90A00E88639 /* TracksCollectionViewCellData.swift in Sources */,
 				B4A6CC6729D481C900E88639 /* TrackResponse.swift in Sources */,
 				B4A6CC6929D865A600E88639 /* TrackService.swift in Sources */,
@@ -533,6 +544,7 @@
 				B4A6CC7429DC794700E88639 /* TrackDetailViewController.swift in Sources */,
 				6F3B19C929D4463E00C3B7A4 /* DBManager.swift in Sources */,
 				6F3B19C629D442E900C3B7A4 /* Track.swift in Sources */,
+				6FB8CACD29DD817A00457A8F /* Status.swift in Sources */,
 				6F3B198E29D3131E00C3B7A4 /* AppDelegate.swift in Sources */,
 				6F3B199029D3131E00C3B7A4 /* SceneDelegate.swift in Sources */,
 				6F3B19C329D43FA900C3B7A4 /* MainViewModel.swift in Sources */,

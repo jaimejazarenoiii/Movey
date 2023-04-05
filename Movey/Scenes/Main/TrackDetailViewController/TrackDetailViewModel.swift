@@ -50,7 +50,7 @@ class TrackDetailViewModel: TrackDetailViewModelTypes, TrackDetailViewModelOutpu
         favoriteTrackProperty.subscribe(on: MainScheduler.instance)
             .subscribe(onNext: { [weak self] track, isFavorite in
                 guard let self else { return }
-                DBManager.shared.update(track: track as! Track, isFavorite: isFavorite)
+                DBManager.shared.update(track: track, isFavorite: isFavorite)
                 let newTrack = DBManager.shared.getTrack(id: track.trackId)
                 self.track.accept(newTrack)
             }).disposed(by: disposeBag)
