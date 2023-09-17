@@ -7,6 +7,14 @@
 
 import Foundation
 
+/**
+ Custom error
+
+ values:
+ - invalidResponse(message: String):
+  - Parameters:
+    * message - a string can be passed to identify the error.
+ */
 enum NetworkError: Error {
     case invalidResponse(message: String)
 }

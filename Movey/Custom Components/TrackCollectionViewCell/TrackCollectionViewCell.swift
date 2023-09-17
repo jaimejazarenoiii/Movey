@@ -34,6 +34,7 @@ class TrackCollectionViewCell: UICollectionViewCell {
         setupBindings()
     }
 
+    // MARK: Setup favorite button
     private func setupFavoriteButton() {
         favoriteButton.setImage(UIImage(systemName: "heart.fill"), for: .selected)
         favoriteButton.setImage(UIImage(systemName: "heart"), for: .normal)
@@ -48,7 +49,13 @@ class TrackCollectionViewCell: UICollectionViewCell {
     }
 
     // MARK: Set function
-    /// To be called out outisde of this class and triggers update of UI
+    /**
+
+     To be called out outisde of this class and triggers update of UI.
+     - Parameters:
+      - Track: track object - values will be  displayed in the cell
+      - indexPath: IndexPath - to be the basis of any action specific to this cell
+     */
     func set(track: Track, indexPath: IndexPath) {
         titleLabel.text = track.trackName
         genreLabel.text = track.primaryGenreName

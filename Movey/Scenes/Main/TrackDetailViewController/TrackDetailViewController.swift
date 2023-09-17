@@ -40,6 +40,7 @@ class TrackDetailViewController: UIViewController {
     }
 
 
+    // MARK: View controller bindings
     private func setupBindings() {
         viewModel.outputs.track.observe(on: MainScheduler.instance)
             .subscribe(onNext: { [weak self] track in

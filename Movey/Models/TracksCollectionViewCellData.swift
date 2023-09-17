@@ -7,6 +7,9 @@
 
 import Foundation
 
+/**
+ Cell presentation Data
+ */
 struct TracksCollectionViewCellData: Hashable {
     let section: Int
     let tracks: [Track]

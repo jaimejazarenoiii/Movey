@@ -45,6 +45,7 @@ class TrackDetailViewModel: TrackDetailViewModelTypes, TrackDetailViewModelOutpu
         error = .init(value: nil)
         track = .init(value: nil)
 
+        /// Trigger the setting of track when view did load occurs
         Observable.combineLatest(setTrackProperty.asObservable(), viewDidLoadProperty.asObservable())
             .subscribe(on: MainScheduler.instance)
             .map { $0.0 }
